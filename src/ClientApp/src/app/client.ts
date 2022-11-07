@@ -1,5 +1,5 @@
 export interface Client {
-  checkInTime: string;
+  checkInTime: Date;
   fullName: number;
   numberInLine: number;
   status: number;

@@ -1,11 +1,40 @@
-<div *ngFor="let client of clients">
- 
-  <p>
-    name: {{ client.fullName }}
-  </p>
+<table class="clients-list">
+  <thead>
+  <tr>
+    <th>
+      Number in line
+    </th>
+    <th>
+      Full name
+    </th>
+    <th>
+      Check-in time
+    </th>
+    <th>
+      Status
+    </th>
+  </tr>
+  </thead>
 
-  <p>
-    status: {{ client.status }}
-  </p>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>
+        {{ client.numberInLine }}
+      </td>
 
-</div>
+      <td>
+        {{ client.fullName }}
+      </td>
+
+      <td>
+        {{ client.checkInTime | date:'shortTime' }}
+      </td>
+      <td>
+        {{ client.status }}
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+

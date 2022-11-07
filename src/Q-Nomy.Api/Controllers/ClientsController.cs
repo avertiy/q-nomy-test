@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +19,7 @@ namespace QNomy.Api.Controllers
 
         public ClientsController(IMediator mediator)
         {
-            _mediator = mediator;
+	        _mediator = mediator;
         }
 
         [HttpGet]
@@ -35,7 +37,7 @@ namespace QNomy.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("next")]
+        [HttpPut("next")]
         [ProducesResponseType(typeof(ProcessNextResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ProcessNext()
@@ -48,16 +50,11 @@ namespace QNomy.Api.Controllers
         [ProducesResponseType(typeof(AddClientResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(AddClientResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] string name)
+        public async Task<IActionResult> Add([FromBody] AddClientCommand command)
         {
-            var response = await _mediator.Send(new AddClientCommand() { Name = name});
-            var result = new ObjectResult(response);
-            if (response?.Success == true)
-            {
-                result.StatusCode = StatusCodes.Status201Created;
-            }
-
-            return result;
+	        var response = await _mediator.Send(command);
+	        var result = new ObjectResult(response) { StatusCode = StatusCodes.Status201Created };
+	        return result;
         }
     }
 }

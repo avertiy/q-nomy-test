@@ -1,5 +1,7 @@
 using System;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,8 +30,9 @@ namespace QNomy.Api
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddApplicationPart(typeof(Startup).Assembly).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
+            services.AddFluentValidationAutoValidation();
+	        services.AddValidatorsFromAssemblyContaining<AddClientCommandValidator>();
 
             services.AddSwaggerGen(c =>
             {
@@ -37,8 +40,11 @@ namespace QNomy.Api
             });
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
-            var assembly = typeof(CreateUserCommandHandler).Assembly;
+            var assembly = typeof(AddClientCommandHandler).Assembly;
             services.AddMediatR(assembly);
+
+            
+
             ConfigureDatabaseServices(services);
 
             // configure DI for application services

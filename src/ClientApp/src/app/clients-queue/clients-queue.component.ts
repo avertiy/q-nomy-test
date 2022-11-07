@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ClientService } from '../client.service';
 import { Client } from '../client';
 
 @Component({
@@ -11,28 +12,26 @@ export class ClientsQueueComponent {
   public clientsInLine: Client[] = [];
   public clientsInService: Client[] = [];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-
-    // need to use next time VS net 6.0 + Angular boilerplate!!
-    console.log(baseUrl); //https://localhost:44484/
-    baseUrl = 'https://localhost:44350/api/';
-
-
-    http.get<GetClientsResponse>(baseUrl + 'clients/').subscribe(result => {
-      console.log('clients response', result);
-      this.clientsInLine = result.clientsInLine;
-      this.clientsInService = result.clientsInProcess;
-    }, error => console.error(error));
+  constructor(private clientService: ClientService) {
+    clientService.fetchData().subscribe(result => {
+        this.clientsInLine = result.clientsInLine;
+        this.clientsInService = result.clientsInProcess;
+    });
   }
 
   public serveNext() {
-    console.log('serve next');
+    this.clientService.serveNext().subscribe(result => {
+      this.clientsInLine = result.clientsInLine;
+      this.clientsInService = result.clientsInProcess;
+    });
   }
 
+  public onAdd(name:string) {
+    this.clientService.addClient(name).subscribe(result => {
+      this.clientsInLine = result.clientsInLine;
+      this.clientsInService = result.clientsInProcess;
+    });
+  }
 }
 
-interface GetClientsResponse {
-  clientsInLine: Client[];
-  clientsInProcess: Client[];
-}
 

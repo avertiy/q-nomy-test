@@ -5,6 +5,6 @@
 
 
 <h1>Clients in line</h1>
-<app-add-client></app-add-client>
+<app-add-client (add)="onAdd($event)"></app-add-client>
 <app-clients-list [clients]="clientsInLine">
 </app-clients-list>

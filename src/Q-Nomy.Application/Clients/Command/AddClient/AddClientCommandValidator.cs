@@ -3,9 +3,9 @@ using QNomy.Infrastructure.Contracts;
 
 namespace QNomy.Application.Clients.Command.AddClient
 {
-    public class CreateUserCommandValidator : AbstractValidator<AddClientCommand>
+    public class AddClientCommandValidator : AbstractValidator<AddClientCommand>
     {
-        public CreateUserCommandValidator()
+        public AddClientCommandValidator()
         {
             RuleFor(x => x.Name).NotEmpty();
         }

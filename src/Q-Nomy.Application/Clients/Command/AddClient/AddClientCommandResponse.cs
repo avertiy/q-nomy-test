@@ -1,7 +1,11 @@
-﻿namespace QNomy.Application.Clients.Command.AddClient
+﻿using System.Collections.Generic;
+using QNomy.Application.Models;
+
+namespace QNomy.Application.Clients.Command.AddClient
 {
     public class AddClientResponse
     {
-        public bool Success { get; set; }
+	    public IList<ClientDto> ClientsInLine { get; set; }
+	    public IList<ClientDto> ClientsInProcess { get; set; }
     }
 }
