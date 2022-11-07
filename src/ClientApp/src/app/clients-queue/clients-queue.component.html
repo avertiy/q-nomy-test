@@ -1,0 +1,10 @@
+<h1>In Service</h1>
+<app-clients-list [clients]="clientsInService">
+</app-clients-list>
+<button class="btn btn-primary" (click)="serveNext()">Next</button>
+
+
+<h1>Clients in line</h1>
+<app-add-client></app-add-client>
+<app-clients-list [clients]="clientsInLine">
+</app-clients-list>

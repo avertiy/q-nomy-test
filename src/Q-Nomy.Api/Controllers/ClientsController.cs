@@ -48,9 +48,9 @@ namespace QNomy.Api.Controllers
         [ProducesResponseType(typeof(AddClientResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(AddClientResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] AddClientCommand command)
+        public async Task<IActionResult> Add([FromBody] string name)
         {
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new AddClientCommand() { Name = name});
             var result = new ObjectResult(response);
             if (response?.Success == true)
             {

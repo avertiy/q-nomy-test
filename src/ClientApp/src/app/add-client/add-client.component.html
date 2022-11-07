@@ -1,0 +1,9 @@
+<form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">
+      Name of the client you are going to add
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+  <button class="button" type="submit">+Add to the line</button>
+</form>
