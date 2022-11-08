@@ -4,7 +4,8 @@ import { Client } from '../client';
 
 @Component({
   selector: 'app-clients-list',
-  templateUrl: './clients-list.component.html'
+  templateUrl: './clients-list.component.html',
+  styleUrls: ['./clients-list.component.css']
 })
 export class ClientsListComponent {
   @Input() clients: Client[] | undefined;

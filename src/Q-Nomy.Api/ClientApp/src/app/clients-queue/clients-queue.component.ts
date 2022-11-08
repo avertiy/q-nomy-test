@@ -5,7 +5,8 @@ import { Client } from '../client';
 
 @Component({
   selector: 'app-clients-queue',
-  templateUrl: './clients-queue.component.html'
+  templateUrl: './clients-queue.component.html',
+  styleUrls: ['./clients-queue.component.css']
 })
 export class ClientsQueueComponent {
   

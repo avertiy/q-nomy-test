@@ -1,0 +1,23 @@
+@media (min-width: 768px) {
+  .clients-box {
+    width: 880px !important;
+  }
+}
+
+.clients-box {
+  width: 500px;
+  border-radius: .5em;
+  font-size: 14px!important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 40px;
+}
+
+.next-client {
+  padding: 10px;
+}
+
+.pull-right {
+  float: right;
+}

@@ -1,9 +1,15 @@
 <form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">
-      Name of the client you are going to add
-    </label>
-    <input id="name" type="text" formControlName="name">
+  <div class="add-client-box">
+    <div>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <label for="name">
+        Name of the client you are going to add
+      </label>
+    </div>
+    <div>
+      <button class="button" type="submit" class="btn btn-add">+Add to the line</button>
+    </div>
   </div>
-  <button class="button" type="submit">+Add to the line</button>
+
 </form>
+<!--fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="2px"-->

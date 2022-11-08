@@ -1,10 +1,21 @@
 <h1>In Service</h1>
-<app-clients-list [clients]="clientsInService">
-</app-clients-list>
-<button class="btn btn-primary" (click)="serveNext()">Next</button>
+<div class="clients-box">
+  <app-clients-list [clients]="clientsInService">
+  </app-clients-list>
+  <div class="next-client">
+    <button class="btn btn-primary pull-right" (click)="serveNext()">Next</button>
+  </div>
+</div>
 
-
-<h1>Clients in line</h1>
+<h1 class="test1">Clients in line</h1>
 <app-add-client (add)="onAdd($event)"></app-add-client>
-<app-clients-list [clients]="clientsInLine">
-</app-clients-list>
+<div class="clients-box">
+  
+  <app-clients-list [clients]="clientsInLine">
+  </app-clients-list>
+</div>
+
+
+
+
+

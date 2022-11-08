@@ -1,40 +1,31 @@
-<table class="clients-list">
-  <thead>
-  <tr>
-    <th>
+
+  <div class="row-header" fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="2px">
+    <div >
       Number in line
-    </th>
-    <th>
+    </div>
+    <div >
       Full name
-    </th>
-    <th>
+    </div>
+    <div>
       Check-in time
-    </th>
-    <th>
+    </div>
+    <div>
       Status
-    </th>
-  </tr>
-  </thead>
+    </div>
+  </div>
 
-  <tbody>
-    <tr *ngFor="let client of clients">
-      <td>
-        {{ client.numberInLine }}
-      </td>
-
-      <td>
-        {{ client.fullName }}
-      </td>
-
-      <td>
-        {{ client.checkInTime | date:'shortTime' }}
-      </td>
-      <td>
-        {{ client.status }}
-      </td>
-
-    </tr>
-
-  </tbody>
-</table>
+  <div *ngFor="let client of clients" class="row-regular" fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="2px">
+    <div>
+      {{ client.numberInLine }}
+    </div>
+    <div>
+      {{ client.fullName }}
+    </div>
+    <div>
+      {{ client.checkInTime | date:'shortTime' }}
+    </div>
+    <div>
+      {{ client.status }}
+    </div>
+  </div>
 

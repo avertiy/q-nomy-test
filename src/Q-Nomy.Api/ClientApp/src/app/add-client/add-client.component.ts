@@ -5,7 +5,8 @@ import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-client',
-  templateUrl: './add-client.component.html'
+  templateUrl: './add-client.component.html',
+  styleUrls: ['./add-client.component.css']
 })
 export class AddClientComponent {
 
