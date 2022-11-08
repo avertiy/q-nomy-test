@@ -13,9 +13,11 @@ export class ClientService {
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string)
   {
-    // need to use next time VS net 6.0 + Angular boilerplate!!
-    console.log(baseUrl); //https://localhost:44484/
-    this.baseUrl = 'https://localhost:44350/api/';
+    //something wrong with ports binding..
+    const url = 'https://localhost:7257/api/';
+    //this.baseUrl = baseUrl + 'api/';
+    this.baseUrl = url;
+    console.log(`BASE_URL: ${baseUrl}; url:${url}`, url);
   }
 
   public fetchData(): Observable<GetClientsResponse> {
