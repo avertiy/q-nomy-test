@@ -1,20 +1,20 @@
 
-  <div class="row-header" fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="2px">
-    <div >
-      Number in line
-    </div>
-    <div >
-      Full name
-    </div>
-    <div>
-      Check-in time
-    </div>
-    <div>
-      Status
-    </div>
+<div class="row-header" fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="0px">
+  <div>
+    Number in line
   </div>
+  <div >
+    Full name
+  </div>
+  <div>
+    Check-in time
+  </div>
+  <div fxHide.xs>
+    Status
+  </div>
+</div>
 
-  <div *ngFor="let client of clients" class="row-regular" fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="2px">
+  <div *ngFor="let client of clients" class="row-regular" fxLayout fxLayoutAlign="center" fxLayoutGap="80px" fxLayoutGap.xs="0px">
     <div>
       {{ client.numberInLine }}
     </div>
@@ -24,7 +24,7 @@
     <div>
       {{ client.checkInTime | date:'shortTime' }}
     </div>
-    <div>
+    <div fxHide.xs>
       {{ client.status }}
     </div>
   </div>

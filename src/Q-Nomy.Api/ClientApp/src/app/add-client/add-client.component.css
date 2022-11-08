@@ -11,7 +11,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  width: 500px;
+  width: 375px;
   border-radius: .5em;
   font-size: 14px !important;
   margin-top: 20px;
@@ -37,19 +37,3 @@
 .form-control {
   width: 300px;
 }
-/*
-
-.flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: DodgerBlue;
-}
-
-.flex-container > div {
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-}*/
